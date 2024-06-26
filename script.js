@@ -72,6 +72,43 @@ darkModeIcon.onclick = () =>{
 
 };
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Disable right-click
+    document.addEventListener('contextmenu', function(event) {
+        event.preventDefault();
+    });
+
+    // Disable copy
+    document.addEventListener('copy', function(event) {
+        event.preventDefault();
+    });
+
+    // Disable paste
+    document.addEventListener('paste', function(event) {
+        event.preventDefault();
+    });
+
+    // Disable cut
+    document.addEventListener('cut', function(event) {
+        event.preventDefault();
+    });
+
+    // Disable select
+    document.addEventListener('selectstart', function(event) {
+        event.preventDefault();
+    });
+
+    // Disable keyboard shortcuts
+    document.addEventListener('keydown', function(event) {
+        // Disable Ctrl+U (View Source), Ctrl+C (Copy), Ctrl+V (Paste), Ctrl+X (Cut), Ctrl+S (Save), Ctrl+Shift+I (DevTools)
+        if ((event.ctrlKey && (event.key === 'u' || event.key === 'c' || event.key === 'v' || event.key === 'x' || event.key === 's' || event.key === 'Shift' && event.key === 'I')) ||
+            (event.metaKey && (event.key === 'u' || event.key === 'c' || event.key === 'v' || event.key === 'x' || event.key === 's' || event.key === 'Shift' && event.key === 'I'))) {
+            event.preventDefault();
+        }
+    });
+});
+
+
 
 
 
